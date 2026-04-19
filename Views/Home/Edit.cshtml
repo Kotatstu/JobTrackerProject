@@ -1,0 +1,52 @@
+@model JobApplication
+
+@{
+    ViewData["Title"] = "Edit Job Application";
+}
+
+<h2>Edit Job Application</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="CompanyName"></label>
+        <input asp-for="CompanyName" />
+        <span asp-validation-for="CompanyName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Position"></label>
+        <input asp-for="Position" />
+        <span asp-validation-for="Position"></span>
+    </div>
+
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+        <span asp-validation-for="Address"></span>
+    </div>
+
+    <div>
+        <label asp-for="Status"></label>
+        <select asp-for="Status" asp-items="Html.GetEnumSelectList<ApplicationStatus>()"></select>
+    </div>
+
+    <div>
+        <label asp-for="SubmitDate"></label>
+        <input asp-for="SubmitDate" type="date" />
+        <span asp-validation-for="SubmitDate"></span>
+    </div>
+
+    <div>
+        <label asp-for="Note"></label>
+        <textarea asp-for="Note"></textarea>
+        <span asp-validation-for="Note"></span>
+    </div>
+
+    <button type="submit">Save Changes</button>
+    <a asp-action="Index">Back</a>
+</form>
